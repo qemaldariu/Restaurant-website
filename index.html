@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Poppins:ital,wght@1,300;1,400&display=swap" rel="stylesheet">
+    <title>Final project</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+    <div class="first-page" id="first-page">
+        <div class="first-page-content">
+        <h1>Qemal Restaurant</h1>
+        <h2>Best quality and taste</h2>
+        <a href="#menu">Menu</a>
+        </div>
+    </div>
+    <div id="header">
+        <nav id="navbar">
+            <h1>Qemal Restaurant</h1>
+            <ul>
+                <li><a href="#first-page">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#shefat">Shefat</a></li>
+                <li><a href="#about_us">About us</a></li>
+                <li><a href="rezervo.html" target="_blank">Reserve</a></li>
+                <li><a href="#contactfooter" target="_blank">Contact us</a></li>
+                <li><a href="#delievery" id="delievery" >Delievery</a></li>
+
+
+
+            </ul>
+            <div id="phone">
+                <a href="tel:+355692402709">+355692402709</a>
+            </div>
+        </nav>
+    </div>
+    <h1 id="menutitle" >Menu</h1>
+    <div class="menu"  id="menu"> 
+        <div class="menu-item">
+            <img src="images/produktezgare.jpeg" alt="produktezgare">
+            <p id="menupar">Produkte zgare</p>
+            <div class="menuoverlay">
+                <div class="contentmenu">
+                   
+                            <ul>
+                                <li><b>Mish ne zgare:</b></li>
+                                <ul>
+                                    <li>Gici(racion) &nbsp; <b>650 Leke</b> </li>
+                                    <li>Qengji(racion) &nbsp; <b>1000 Leke</b> </li>
+
+                                </ul>
+                                <li>Eskallop me mish pule &nbsp; <b>600 Leke</b></li>
+                                <li>Tave dheu me mish &nbsp; <b>450 Leke</b></li>
+
+                            </ul>
+                     
+                            
+                </div>
+            </div>
+        </div>
+    
+        <div class="menu-item">
+            <img src="images/pizza.jpg" alt="produktezgare">
+            <p id="menupar">Pizza</p>
+            <div class="menuoverlay">
+                <div class="contentmenu">
+                    <li>Margarita &nbsp;<b>550 Leke</b></li>
+                    <li>4 stinet &nbsp;<b>750 Leke</b></li>
+                    <li>Capricciosa &nbsp;<b>1000 Leke</b></li>
+                </div>
+            </div>
+        </div>
+    
+        <div class="menu-item">
+            <img src="images/embelsira.jpeg" alt="embelsira">
+            <p id="menupar">Embelsira</p>
+            <div class="menuoverlay">
+                <div class="contentmenu">
+                    <ul>
+                        <li>Torte &nbsp;<b>450 Leke</b></li>
+                        <li>Sufle &nbsp;<b>550 Leke</b></li>
+                        <li>Bakllava &nbsp;<b>350 Leke</b></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div> 
+    
+    <h1 id="menutitle" >Shefat</h1>
+    <div class="shefat" id="shefat" > 
+        <div class="shefat-item">
+            <img src="images/meatcheff.jpg" alt="produktezgarecheff">
+            <h1>Andi</h1>
+            <p>Specialisti i mishit dhe i peshkut</p>
+        </div>
+        
+        <div class="shefat-item">
+            <img src="images/pizzaiolo.jpg" alt="pizzacheff">
+            <h1>Antonio</h1>
+            <p>Specialisti Italian per PIZZA</p>
+        </div>
+        
+        <div class="shefat-item">
+            <img src="images/embelsiracheff.jpg" alt="embelsiracheff">
+            <h1>Laura</h1>
+            <p>Specialistja italiane e embelsirave</p>
+        </div>
+    </div>
+    <div class="modal hidden">
+        <h1>Delievery </h1>
+        <button class="close-modal">&times;</button>
+        <div class="containerdelievery">
+            <form action="delievery.php" method="post">
+                <label for="emri" id="emri" >Vendosni emrin tuaj</label>
+                <input type="text" placeholder="Emri" name="emri"><br>
+        <Label for="tel" aria-placeholder="Telefoni" > Vendosni numrin e telefonit:</Label>
+        <input type="tel" name="telefoni"><br>
+        <label for="adresa">Vendosni adresen tuaj</label>
+        <input type="text" placeholder="Adresa" name="adresa"><br>
+
+        <p>Vendosni detajet e porosise:</p>
+        <textarea name="porosia" >Ju  lutem ketu vendosni produktet qe deshironi te porosisni si edhe sasine qe deshironi per secilin produkt</textarea>
+        <br>
+        <input type="submit" value="Konfirmo porosine" onclick="alert(`Faleminderit Porosia juaj po pergatitet!`)">
+    </form>
+    
+    
+    </div>
+
+    
+    
+    
+    </div>
+    <div class="overlay hidden"></div>
+    
+    
+    
+    <h1 id="h1aboutus" >About us</h1>
+
+<div class="about_us " id="about_us" >
+<p>Ne jemi nje ekip pasionant i kuzhiniereve dhe personelit, te perkushtuar per te sjelle nje pervoje  shijeje dhe kenaqesie per mysafiret tane.
+
+    Perdorimi i vetem te produkteve te fresketa dhe cilesise me te larte eshte parimi kryesor i kuzhines sone. Ne promovojme shijen autentike dhe inovacionin ne çdo pjate, duke perdorur kombinime te reja dhe prezantime te veçanta per te kenaqur zemrat dhe shijet e te gjithe vizitoreve tane.
+    
+    Ambienti yne eshte i kujdesur me kujdes, duke ofruar nje atmosfere te ngrohte dhe mikpritese. Perveçse nje zone kulinarisht e pasur, ne jemi te perkushtuar ne ofrimin e nje sherbimi te shkelqyer dhe nje eksperience te jashtezakonshme per te gjithe ata qe na vizitojne.
+    
+    Jemi falenderues per mbeshtetjen dhe besimin qe keni treguar ndaj nesh, dhe me kenaqesi presim te ndajme momente te paharrueshme me ju ne restorantin tone. Faleminderit qe zgjodhet te jeni pjese e rrugetimit tone kulinar!</p>
+
+    <img src="images/chefaboutus.jpg" alt="about_us">
+
+</div>
+
+
+
+
+
+
+    <div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47934.06594190049!2d19.77662333324116!3d41.33324180457508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1350310470fac5db%3A0x40092af10653720!2sTirana%2C%20Albania!5e0!3m2!1sen!2s!4v1705784669532!5m2!1sen!2s" 
+    width="400" 
+    height="300" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+</iframe>  
+<p id="mapdescription">I gjendur ne qender te qytetit madheshtor te Tiranes,<br>restoranti ofron nje pamje te mrekullueshme duke shijuar ushqimet me te mira qe keni provuar ndonjehere. <br>Harta tregon me saktesi vendodhjen e restorantit ku ju mirepresim me krahe hapur!</p>
+</div>
+<h1 id="contactfooter" >Contact</h1>
+<div class="contactitems">
+<div class="contact">
+    <p>
+
+        <a href="mailto:qemaldariu@gmail.com">
+            <i class="fas fa-envelope"></i>
+            qemaldariu@gmail.com</a>
+    </p>
+    <p>
+        <a href="tel:+3556924023709">
+            <i class="fas fa-phone"></i>
+
+            +3556924023709</a>
+    </p>
+</div>
+<img src="images/cheffcalling.jpg" alt="cheffcalling">
+</div>
+<div class="footer">
+        <p>Created by Qemal Dariu</p>
+    </div>
+    <script src="script.js"></script>
+    
+</body>
+</html>

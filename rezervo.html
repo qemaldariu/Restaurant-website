@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Reservation</title>
+    <style>
+        body {
+            background: linear-gradient(to right, red, yellow);
+            font-family: "Poppins", cursive;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        form {
+            background-color: #222;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="number"] {
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        input[type="text"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus,
+        input[type="number"]:focus {
+            background-color: lightgrey;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            width: 20%;
+            padding: 10px;
+            margin-left: 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #2980b9;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        label {
+            color: orange;
+        }
+
+        label:nth-child(odd) {
+            color: white;
+        }
+
+        .modal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            background-color: white;
+            padding: 6rem;
+            border-radius: 5px;
+            box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1.2rem;
+            right: 2rem;
+            font-size: 5rem;
+            color: #333;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(3px);
+        }
+
+        #fototavoline {
+            text-decoration: none;
+            color: orange;
+            cursor: crosshair;
+        }
+
+        .error {
+            background-color: red;
+        }
+
+        @media (max-width:600px){
+            .container {
+                display: flex;
+                flex-direction: column;
+            align-items: center;
+            height: 200vh;
+            padding: 20px;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <form action="connect.php" method="post">
+                <h3>Prenotim tavoline</h3>
+                <label for="emri">Emri:</label>
+                <input type="text" name="emri" id="emri" placeholder="Emri"><br>
+
+                <label for="mbiemri">Mbiemri:</label>
+                <input type="text" name="mbiemri" id="mbiemri" placeholder="Mbiemri"><br>
+
+                <label for="data">Data:</label>
+                <input type="date" id="date" name="data">
+                <label for="ora">Ora:</label>
+                <input type="time" id="time" name="ora"><br>
+
+                <label for="tel" >Telefoni:</label>
+                <input type="tel" id="tel" name="tel"><br>
+
+                <label for="numri" >Numri i personave:</label>
+                <input type="number" id="numri" name="numri"><br>
+                <a href="#" id="fototavoline">Kliko ketu per te pare foto te tavolines suaj</a><br>
+
+                <input type="reset" name="reset" id="reset" value="Reset">
+                <input type="submit" value="Submit" onclick="submitForm(); ">
+            </form>
+
+        </div>
+
+
+        <img src="images/cheffwelcome.png" alt="cheffwelcome">
+    </div>
+    <div class="modal hidden">
+        <h1>Log in </h1>
+        <button class="close-modal">&times;</button>
+
+        <img src="images/fotores.jpg" alt="fotores" id="fototavoline">
+
+
+    </div>
+    <script>
+        const fototavoline = document.getElementById("fototavoline");
+        const modal = document.querySelector('.modal');
+        const overlay = document.querySelector('.overlay');
+        const btnCloseModal = document.querySelector(".close-modal")
+
+        function validateForm() {
+            let emri = document.getElementById("emri").value;
+            let emriInput = document.getElementById("emri");
+            let tel = document.getElementById("tel").value;
+            let telInput = document.getElementById("tel");
+            let date = document.getElementById("date").value;
+            let dateInput = document.getElementById("date");
+            let numri = document.getElementById("numri").value;
+            let numriInput = document.getElementById("numri");
+            let time = document.getElementById('time').value;
+            let timeinput = document.getElementById('time');
+            let isValid = true;
+
+            if (emri === "") {
+                emriInput.placeholder = "Name cannot be empty";
+                emriInput.classList.add('error');
+                isValid = false;
+            } else {
+                emriInput.classList.remove('error');
+            }
+            if (tel === "") {
+                telInput.placeholder = "Phone cannot be empty";
+                telInput.classList.add('error');
+                isValid = false;
+            } else {
+                telInput.classList.remove('error');
+            }
+            if (date === "") {
+                dateInput.placeholder = "Date cannot be empty";
+                dateInput.classList.add('error');
+                isValid = false;
+            } else {
+                dateInput.classList.remove('error');
+            }
+            if (numri === "") {
+                numriInput.placeholder = "Numri i personave cannot be empty";
+                numriInput.classList.add('error');
+                isValid = false;
+            } else {
+                numriInput.classList.remove('error');
+            }
+            if (time === "") {
+                timeinput.classList.add('error');
+                isValid = false;
+            } else {
+                timeinput.classList.remove('error');
+            }
+            return isValid;
+        }
+
+        function submitForm() {
+            if (validateForm()) {
+                alert("Regjistrimi u krye me sukses");
+            } else {
+                alert("Plotesoni te gjitha fushat para se te dergoni formen.");
+            }
+        }
+
+        fototavoline.addEventListener('click', function () {
+            modal.classList.remove('hidden');
+            overlay.classList.remove('hidden');
+        });
+
+        btnCloseModal.addEventListener('click', function () {
+            modal.classList.add('hidden');
+            overlay.classList.add('hidden');
+        });
+    </script>
+</body>
+
+</html>
